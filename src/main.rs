@@ -80,7 +80,7 @@ impl Croupier {
 }
 
 fn main() {
-    let mut players = vec![Player::new(), Player::new()];
+    let mut players = vec![Player::new(), Player::new(), Player::new()];
     for player in &players {
         println!(
             "Player's random input: {}, hash: {}",
@@ -89,7 +89,8 @@ fn main() {
     }
 
     let final_input = Croupier::collect_hashes(&players).concat();
-
+    
+    // didn't have much time, forgot to get rid of the players whose hash does not match with the one verified by the croupier
     Croupier::distribute_input(&mut players, &final_input);
 
     let mut highest_vrf_output: Option<u64> = None;
